@@ -20,6 +20,14 @@ npm run preview
 
 Deploy the generated `dist/` directory to any static hosting provider.
 
+## GitHub Pages
+
+This repository is configured for Actions-based GitHub Pages. Pushes to `main` run the workflow in `.github/workflows/deploy.yml`, build the site, and publish it to:
+
+https://rvsarish.github.io/sarish-portfolio/
+
+You can also run the **Deploy Vite site to GitHub Pages** workflow manually from the GitHub Actions tab.
+
 ## Stack
 
 - React + Vite
