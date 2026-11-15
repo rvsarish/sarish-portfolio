@@ -48,7 +48,7 @@ const skillGroups = [
     icon: 'network',
     groups: [
       ['Domain', 'Payment orchestration · Payment infrastructure · Fintech systems'],
-      ['Practice', 'Production incident analysis · Troubleshooting · Reliability engineering'],
+      ['Practice', 'Production incident analysis · Troubleshooting · Reliability practices'],
       ['Foundations', 'Data structures · Algorithms · Problem-solving'],
     ],
   },
@@ -249,6 +249,7 @@ function Header() {
       </button>
       <nav ref={navigation} id="main-navigation" className={open ? 'is-open' : ''} aria-label="Main navigation">
         <a href="#experience" onClick={() => setOpen(false)}>Experience</a>
+        <a href="#work" onClick={() => setOpen(false)}>Project</a>
         <a href="#approach" onClick={() => setOpen(false)}>Approach</a>
         <a href="#system" onClick={() => setOpen(false)}>System</a>
         <a href="#stack" onClick={() => setOpen(false)}>Stack</a>
@@ -326,7 +327,7 @@ function Hero() {
       <div className="hero-ambient ambient-two" />
       <div className="hero-copy" data-reveal>
         <div className="eyebrow"><span className="status-dot" /> PAYMENT ENGINEERING · BENGALURU</div>
-        <h1>I work with<br /><em>payment systems.</em></h1>
+        <h1>I investigate<br /><em>payment issues.</em></h1>
         <p className="hero-description">
           I’m <strong>Sarish R V</strong>, a Solution Engineer at Juspay in Bengaluru. Most of my work starts with a transaction, a set of logs, and a problem that needs a clear explanation.
         </p>
@@ -382,6 +383,30 @@ function Hero() {
         <span>PRODUCTION TROUBLESHOOTING</span>
         <a href="#story" aria-label="Scroll to my story">SCROLL TO DISCOVER <span>↓</span></a>
       </div>
+    </section>
+  );
+}
+
+function FeaturedProject() {
+  return (
+    <section className="work section" id="work">
+      <TiltCard className="work-card">
+        <div data-reveal>
+          <div className="work-grid-art" aria-hidden="true">
+            <div className="work-orbit orbit-a" /><div className="work-orbit orbit-b" />
+            <span className="work-core">S/V</span>
+          </div>
+          <div className="work-copy">
+            <div className="section-index"><span>03</span> FEATURED PROJECT / OPEN SOURCE</div>
+            <h2>The code behind<br /><em>this site.</em></h2>
+            <p>I designed and built this portfolio with React and Three.js. It includes interactive 3D models, keyboard controls, reduced-motion support, and static fallbacks when WebGL is unavailable. The public repository contains the complete implementation and deployment workflow.</p>
+            <ExternalLink href="https://github.com/rvsarish/sarish-portfolio" className="button button-light" icon="github">
+              View source code
+            </ExternalLink>
+          </div>
+          <div className="work-meta"><span>REACT · THREE.JS · CSS</span><span>GITHUB ACTIONS + GITHUB PAGES</span></div>
+        </div>
+      </TiltCard>
     </section>
   );
 }
@@ -467,11 +492,12 @@ function App() {
           </div>
         </section>
 
+        <FeaturedProject />
         <MentalMap />
         <SystemExplorer />
 
         <section className="stack section" id="stack">
-          <div className="section-index" data-reveal><span>05</span> TECHNOLOGIES & CERTIFICATIONS</div>
+          <div className="section-index" data-reveal><span>06</span> TECHNOLOGIES & CERTIFICATIONS</div>
           <div className="stack-intro" data-reveal>
             <h2>Technologies I’ve worked with</h2>
             <p>The application, systems, and problem-solving tools I’ve used across work and projects.</p>
@@ -507,7 +533,7 @@ function App() {
         <section className="proof section">
           <div className="proof-grid">
             <div className="proof-number" data-reveal>
-              <span className="section-index"><span>06</span> LEARNING & EDUCATION</span>
+              <span className="section-index"><span>07</span> LEARNING & EDUCATION</span>
               <div><strong>650<sup>+</sup></strong><span>LEETCODE<br />PROBLEMS SOLVED</span></div>
               <p>Regular problem-solving practice outside my day-to-day work.</p>
             </div>
@@ -519,27 +545,6 @@ function App() {
               <span className="education-period">2021 — 2025</span>
             </div>
           </div>
-        </section>
-
-        <section className="work section" id="work">
-          <TiltCard className="work-card">
-            <div data-reveal>
-              <div className="work-grid-art" aria-hidden="true">
-                <div className="work-orbit orbit-a" /><div className="work-orbit orbit-b" />
-                <span className="work-core">S/V</span>
-                <i className="satellite sat-a" /><i className="satellite sat-b" />
-              </div>
-              <div className="work-copy">
-                <div className="section-index"><span>07</span> PUBLIC GITHUB WORK</div>
-                <h2>My code on GitHub</h2>
-                <p>My public repositories include application development work and coding experiments. The code and commit history show what I’ve been working on.</p>
-                <ExternalLink href="https://github.com/rvsarish?tab=repositories" className="button button-light" icon="github">
-                  View my repositories
-                </ExternalLink>
-              </div>
-              <div className="work-meta"><span>ON GITHUB SINCE SEPTEMBER 2023</span><span>@RVSARISH ↗</span></div>
-            </div>
-          </TiltCard>
         </section>
 
         <section className="contact section" id="contact">

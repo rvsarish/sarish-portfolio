@@ -7,32 +7,32 @@ const SystemScene = lazy(() => import('./SystemScene.jsx'));
 
 const stages = [
   {
-    label: 'Request',
-    kicker: '01 / BASELINE',
-    title: 'Start with the request',
-    description: 'I note the inputs and the intended outcome so there is a baseline for everything that follows.',
-    signals: ['Inputs', 'Expected outcome'],
+    label: 'Initiate',
+    kicker: '01 / REQUEST',
+    title: 'Create the payment request',
+    description: 'A customer action starts a payment request with the details needed to process it.',
+    signals: ['Request details', 'Expected outcome'],
   },
   {
     label: 'Orchestrate',
     kicker: '02 / ROUTE',
-    title: 'Follow the route',
-    description: 'I follow the services and decision points, looking for the place where the response or behavior changed.',
-    signals: ['Services', 'Decision points'],
+    title: 'Choose a route',
+    description: 'Configuration and routing decisions send the request through an appropriate payment path.',
+    signals: ['Routing decisions', 'Service dependencies'],
   },
   {
     label: 'Process',
-    kicker: '03 / RESPONSE',
-    title: 'Read the response',
-    description: 'I compare the response with the original request before deciding what it says about the issue.',
-    signals: ['Status codes', 'Messages and error fields'],
+    kicker: '03 / PROCESSING',
+    title: 'Process downstream',
+    description: 'The downstream provider handles the request and returns a response. That response may represent an accepted or pending payment—not necessarily the final state.',
+    signals: ['Provider response', 'Pending is possible'],
   },
   {
-    label: 'Resolve',
-    kicker: '04 / OUTCOME',
-    title: 'Confirm the outcome',
-    description: 'I check the intended state end to end, then document the findings and the evidence behind them.',
-    signals: ['Final state', 'Recorded findings'],
+    label: 'Status',
+    kicker: '04 / STATUS',
+    title: 'Track the payment status',
+    description: 'The initial result can be followed by asynchronous notifications or status checks. The integration needs to account for both immediate and later updates.',
+    signals: ['Immediate result', 'Later status updates'],
   },
 ];
 
@@ -70,10 +70,10 @@ export default function SystemExplorer() {
 
   return (
     <section className="system section" id="system" aria-labelledby="system-heading">
-      <div className="section-index" data-reveal><span>04</span> TRANSACTION EXPLORER</div>
+      <div className="section-index" data-reveal><span>05</span> PAYMENT LIFECYCLE</div>
       <div className="system-intro" data-reveal>
         <h2 id="system-heading">A transaction’s path</h2>
-        <p>A simplified transaction lifecycle. Select a stage to see what I pay attention to when following a request.</p>
+        <p>A generic path from initiation through payment status. Select a stage to see what each part of the path means.</p>
       </div>
       <div className="system-layout">
         <div className="system-visual" ref={sceneContainer} data-reveal>
@@ -112,7 +112,7 @@ export default function SystemExplorer() {
               </button>
             ))}
           </div>
-          <p className="system-disclaimer">Conceptual visualization, not a depiction of production infrastructure.</p>
+          <p className="system-disclaimer">Illustrative model. Routes and status handling vary by integration.</p>
         </div>
       </div>
     </section>
