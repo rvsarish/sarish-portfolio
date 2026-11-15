@@ -1,0 +1,552 @@
+/* Clearer explanatory content */
+.practice-card {
+  min-height: 570px;
+}
+
+.practice-list-label {
+  display: block;
+  margin-top: 23px;
+  color: #8998ad;
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.09em;
+}
+
+.practice-points {
+  display: grid;
+  gap: 8px;
+  margin: 13px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.practice-points li {
+  position: relative;
+  padding-left: 17px;
+  color: #b4bdca;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.practice-points li::before {
+  position: absolute;
+  left: 0;
+  content: '—';
+  color: var(--blue);
+}
+
+.system-intro strong {
+  color: #d2deef;
+  font-weight: 600;
+}
+
+.system-visual {
+  height: 690px;
+}
+
+.system-stage-copy {
+  min-height: 330px;
+}
+
+.stage-questions {
+  display: grid;
+  gap: 9px;
+  margin: 21px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stage-questions li {
+  position: relative;
+  padding-left: 19px;
+  color: #b4c0d1;
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+.stage-questions li::before {
+  position: absolute;
+  left: 0;
+  content: '↳';
+  color: var(--mint);
+}
+
+/* Precedence mental map */
+.mental {
+  padding-top: 85px;
+}
+
+.mental-intro {
+  display: grid;
+  grid-template-columns: 1.2fr 0.65fr;
+  align-items: end;
+  gap: 7vw;
+  margin: 48px 0 60px;
+}
+
+.mental-intro > div > p {
+  max-width: 390px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.mental-intro > div > span {
+  display: block;
+  max-width: 380px;
+  margin-top: 24px;
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 8px;
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+}
+
+.mental-framework {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: linear-gradient(145deg, rgba(16, 23, 37, 0.92), rgba(9, 13, 22, 0.96));
+}
+
+.mental-framework-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--line);
+  color: #8998ad;
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.09em;
+}
+
+.mental-track {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mental-track > li {
+  position: relative;
+  min-width: 0;
+  border-right: 1px solid rgba(177, 197, 231, 0.09);
+}
+
+.mental-track > li:last-child {
+  border-right: 0;
+}
+
+.mental-track button {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 245px;
+  padding: 28px 23px 32px;
+  border: 0;
+  color: var(--text);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background 250ms ease;
+}
+
+.mental-track button::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  content: '';
+  background: var(--blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms ease;
+}
+
+.mental-track button:hover {
+  background: rgba(130, 170, 255, 0.035);
+}
+
+.mental-track li.is-active button {
+  background: radial-gradient(circle at 20% 10%, rgba(69, 113, 204, 0.16), transparent 60%);
+}
+
+.mental-track li.is-active button::before {
+  transform: scaleX(1);
+}
+
+.mental-node-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mental-node-top i {
+  display: grid;
+  width: 33px;
+  height: 33px;
+  flex: 0 0 33px;
+  place-items: center;
+  border: 1px solid #415575;
+  border-radius: 50%;
+  color: #a6b8d0;
+  font-family: var(--mono);
+  font-size: 8px;
+  font-style: normal;
+  transition: color 250ms ease, border-color 250ms ease, background 250ms ease;
+}
+
+.is-active .mental-node-top i {
+  border-color: var(--blue);
+  color: #0c1930;
+  background: var(--blue);
+  box-shadow: 0 0 20px rgba(130, 170, 255, 0.17);
+}
+
+.mental-node-top small {
+  color: #8998ae;
+  font-family: var(--mono);
+  font-size: 7px;
+  letter-spacing: 0.08em;
+}
+
+.is-active .mental-node-top small {
+  color: var(--mint);
+}
+
+.mental-track button > strong {
+  display: block;
+  margin-top: 30px;
+  font-size: 17px;
+  font-weight: 550;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.mental-track button > p {
+  margin-top: 14px;
+  color: #96a2b5;
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+.mental-connector {
+  position: absolute;
+  z-index: 3;
+  top: 44px;
+  right: -14px;
+  width: 28px;
+  height: 14px;
+  pointer-events: none;
+}
+
+.mental-connector::before {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  content: '';
+  background: #3c5478;
+}
+
+.mental-connector::after {
+  position: absolute;
+  top: 0;
+  right: -1px;
+  content: '›';
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 15px;
+}
+
+.mental-connector i {
+  position: absolute;
+  z-index: 1;
+  top: 4px;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 7px rgba(184, 245, 209, 0.45);
+  animation: mentalFlow 3.4s ease-in-out infinite;
+}
+
+@keyframes mentalFlow {
+  0%, 20% { opacity: 0; transform: translateX(0); }
+  40% { opacity: 1; }
+  80%, 100% { opacity: 0; transform: translateX(20px); }
+}
+
+.mental-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+  gap: 6vw;
+  padding: 37px 34px;
+  border-top: 1px solid var(--line);
+  background: rgba(8, 13, 23, 0.43);
+  animation: stageCopyIn 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mental-detail-copy h3 {
+  max-width: 520px;
+  margin-top: 18px;
+  font-size: clamp(25px, 2.5vw, 36px);
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: -0.04em;
+}
+
+.mental-detail-copy .mono-label {
+  color: var(--blue);
+  text-transform: uppercase;
+}
+
+.mental-detail-copy > p {
+  max-width: 600px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+.mental-questions {
+  padding-left: 28px;
+  border-left: 1px solid var(--line);
+}
+
+.mental-questions > span {
+  color: #8998ad;
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.09em;
+}
+
+.mental-questions ul {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mental-questions li {
+  position: relative;
+  padding-left: 17px;
+  color: #b8c2d1;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.mental-questions li::before {
+  position: absolute;
+  left: 0;
+  content: '?';
+  color: var(--mint);
+  font-family: var(--mono);
+}
+
+.mental-principles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 25px;
+  border-top: 1px solid var(--line);
+  color: #9aa8bb;
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.07em;
+  text-align: center;
+}
+
+.mental-principles i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.mental-note {
+  max-width: 720px;
+  margin: 18px auto 0;
+  color: #929fb2;
+  font-size: 10px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+@media (max-width: 1180px) {
+  .mental-track button {
+    padding-inline: 17px;
+  }
+
+  .mental-track button > strong {
+    font-size: 15px;
+  }
+
+  .mental-track button > p {
+    font-size: 10px;
+  }
+
+  .mental-detail {
+    gap: 35px;
+  }
+}
+
+@media (max-width: 900px) {
+  .practice-card {
+    min-height: 0;
+  }
+
+  .practice-list-label,
+  .practice-points {
+    grid-column: 2;
+  }
+
+  .mental-intro {
+    grid-template-columns: 1fr;
+    gap: 27px;
+  }
+
+  .mental-intro > div > p {
+    max-width: 600px;
+  }
+
+  .mental-track {
+    grid-template-columns: 1fr;
+  }
+
+  .mental-track > li {
+    border-right: 0;
+    border-bottom: 1px solid rgba(177, 197, 231, 0.09);
+  }
+
+  .mental-track > li:last-child {
+    border-bottom: 0;
+  }
+
+  .mental-track button {
+    min-height: 0;
+    padding: 25px 28px 27px;
+  }
+
+  .mental-track button > strong {
+    margin-top: 20px;
+    font-size: 19px;
+  }
+
+  .mental-track button > p {
+    max-width: 570px;
+    font-size: 11px;
+  }
+
+  .mental-connector {
+    top: auto;
+    right: auto;
+    bottom: -14px;
+    left: 32px;
+    width: 18px;
+    height: 28px;
+  }
+
+  .mental-connector::before {
+    top: 0;
+    left: 8px;
+    width: 1px;
+    height: 100%;
+  }
+
+  .mental-connector::after {
+    top: auto;
+    right: 2px;
+    bottom: -5px;
+    transform: rotate(90deg);
+  }
+
+  .mental-connector i {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .practice-list-label,
+  .practice-points {
+    grid-column: auto;
+  }
+
+  .system-visual {
+    height: 480px;
+  }
+
+  .system-stage-copy {
+    min-height: 0;
+  }
+
+  .mental {
+    padding-top: 40px;
+  }
+
+  .mental-intro {
+    margin: 35px 0 42px;
+  }
+
+  .mental-intro > div > p {
+    font-size: 12px;
+  }
+
+  .mental-intro > div > span {
+    font-size: 7px;
+  }
+
+  .mental-framework-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px 23px;
+    font-size: 7px;
+  }
+
+  .mental-track button {
+    padding-inline: 23px;
+  }
+
+  .mental-connector {
+    left: 27px;
+  }
+
+  .mental-detail {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    padding: 29px 23px;
+  }
+
+  .mental-detail-copy > p {
+    font-size: 11px;
+  }
+
+  .mental-questions {
+    padding-top: 23px;
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .mental-principles {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 21px 23px;
+    font-size: 7px;
+    text-align: left;
+  }
+
+  .mental-principles i {
+    display: none;
+  }
+}
