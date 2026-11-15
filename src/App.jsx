@@ -7,33 +7,6 @@ import SystemExplorer from './components/SystemExplorer.jsx';
 const PaymentScene = lazy(() => import('./components/PaymentScene.jsx'));
 import { useReducedMotion, useSceneActivity } from './hooks.js';
 
-const practices = [
-  {
-    number: '01',
-    icon: 'route',
-    title: 'Payment orchestration',
-    description: 'Coordinating the routes, services, decisions, and responses that carry a payment request from initiation to outcome.',
-    points: ['Routes and service dependencies', 'Status and response handling', 'Handoffs, retries, and expected outcomes'],
-    tag: 'FOLLOW THE COMPLETE REQUEST PATH',
-  },
-  {
-    number: '02',
-    icon: 'pulse',
-    title: 'Production incidents',
-    description: 'Investigating real system behavior when something goes wrong—separating the visible symptom from the conditions contributing to it.',
-    points: ['Scope, timeline, and reproducibility', 'Logs, responses, and failure signals', 'Symptoms versus contributing causes'],
-    tag: 'TURN SIGNALS INTO AN EXPLANATION',
-  },
-  {
-    number: '03',
-    icon: 'shield',
-    title: 'System reliability',
-    description: 'Learning from what happened to make systems easier to understand, operate, and trust—not simply making an error disappear.',
-    points: ['Failure modes and observability gaps', 'Clear outcomes and validation', 'Prevention and shared operational learning'],
-    tag: 'CARRY THE LESSON FORWARD',
-  },
-];
-
 const experiences = [
   {
     company: 'Juspay',
@@ -275,10 +248,9 @@ function Header() {
         <span /><span />
       </button>
       <nav ref={navigation} id="main-navigation" className={open ? 'is-open' : ''} aria-label="Main navigation">
-        <a href="#practice" onClick={() => setOpen(false)}>Practice</a>
-        <a href="#system" onClick={() => setOpen(false)}>System</a>
-        <a href="#approach" onClick={() => setOpen(false)}>Approach</a>
         <a href="#experience" onClick={() => setOpen(false)}>Experience</a>
+        <a href="#approach" onClick={() => setOpen(false)}>Approach</a>
+        <a href="#system" onClick={() => setOpen(false)}>System</a>
         <a href="#stack" onClick={() => setOpen(false)}>Stack</a>
         <ExternalLink href="https://www.linkedin.com/in/sarishrv/" className="nav-connect">
           Let’s connect
@@ -354,13 +326,13 @@ function Hero() {
       <div className="hero-ambient ambient-two" />
       <div className="hero-copy" data-reveal>
         <div className="eyebrow"><span className="status-dot" /> PAYMENT ENGINEERING · BENGALURU</div>
-        <h1>Systems that<br /><em>simply work.</em></h1>
+        <h1>I work with<br /><em>payment systems.</em></h1>
         <p className="hero-description">
-          I’m <strong>Sarish R V</strong>, a Solution Engineer at Juspay. I investigate how payment systems behave and help turn unclear signals into understandable next steps—using a full-stack foundation to connect application experience with infrastructure behavior.
+          I’m <strong>Sarish R V</strong>, a Solution Engineer at Juspay in Bengaluru. Most of my work starts with a transaction, a set of logs, and a problem that needs a clear explanation.
         </p>
         <div className="hero-actions">
           <a className="button button-primary" href="#experience">
-            Explore my journey <Icon name="arrow" size={18} />
+            See my experience <Icon name="arrow" size={18} />
           </a>
           <ExternalLink className="text-link" href="https://github.com/rvsarish" icon="github">
             GitHub
@@ -405,9 +377,9 @@ function Hero() {
       </div>
 
       <div className="hero-bottom" data-reveal>
-        <span>FULL-STACK FOUNDATION</span><i />
-        <span>SYSTEMS PERSPECTIVE</span><i />
-        <span>RELIABILITY PRACTICE</span>
+        <span>APPLICATION DEVELOPMENT</span><i />
+        <span>PAYMENT ORCHESTRATION</span><i />
+        <span>PRODUCTION TROUBLESHOOTING</span>
         <a href="#story" aria-label="Scroll to my story">SCROLL TO DISCOVER <span>↓</span></a>
       </div>
     </section>
@@ -448,54 +420,61 @@ function App() {
         <Hero />
 
         <section className="story section" id="story">
-          <div className="section-index" data-reveal><span>01</span> THE SHORT STORY</div>
+          <div className="section-index" data-reveal><span>01</span> BACKGROUND</div>
           <div className="story-content" data-reveal>
             <p className="story-lead">
-              Full-stack taught me how software is assembled. Solution engineering taught me <em>what to ask when it behaves unexpectedly.</em>
+              I built apps before I started working on the <em>systems behind payments.</em>
             </p>
             <div className="story-detail">
               <p>
-                I built across React interfaces, Node.js services, databases, APIs, and cloud deployments. That foundation helps me connect what someone sees in an application with the technical journey supporting it.
+                I’ve worked with React interfaces, Node.js services, databases, APIs, and cloud deployments. That hands-on background helps when an issue crosses layers: I can follow how an application is built while I examine how it behaves.
               </p>
               <p>
-                At Juspay, I focus on payment orchestration, production incident investigation, and reliability. The aim is not just to find an error—it is to explain expected versus actual behavior, establish the request path, and use evidence to choose a sound next step.
+                At Juspay, I work on payment orchestration, production issue analysis, technical troubleshooting, and reliability. I enjoy the part where a vague symptom starts to become a concrete explanation.
               </p>
               <div className="location-line"><Icon name="map" size={17} /> BASED IN BENGALURU, INDIA</div>
             </div>
           </div>
         </section>
 
-        <section className="practice section" id="practice">
-          <div className="section-heading" data-reveal>
-            <div className="section-index"><span>02</span> THE DAILY BRIEF</div>
-            <h2>Where I do my<br /><em>best thinking.</em></h2>
-            <p>Three parts of the same job: understand the path, explain the behavior, and improve the outcome.</p>
+        <section className="experience section" id="experience">
+          <div className="section-heading experience-heading" data-reveal>
+            <div className="section-index"><span>02</span> WORK EXPERIENCE</div>
+            <h2>Work experience</h2>
           </div>
-          <div className="practice-grid">
-            {practices.map((practice, index) => (
-              <TiltCard className="practice-card" key={practice.title}>
-                <div data-reveal style={{ transitionDelay: `${index * 90}ms` }}>
-                  <div className="card-topline"><span>{practice.number}</span><Icon name={practice.icon} size={27} /></div>
-                  <div className="practice-icon"><Icon name={practice.icon} size={37} /></div>
-                  <h3>{practice.title}</h3>
-                  <p>{practice.description}</p>
-                  <span className="practice-list-label">WHAT I PAY ATTENTION TO</span>
-                  <ul className="practice-points">{practice.points.map((point) => <li key={point}>{point}</li>)}</ul>
-                  <div className="card-tag">{practice.tag}<Icon name="arrow" size={15} /></div>
+          <div className="timeline">
+            {experiences.map((item, index) => (
+              <article className="timeline-item" key={item.company} data-reveal>
+                <div className="timeline-marker"><span>{String(index + 1).padStart(2, '0')}</span></div>
+                <div className="timeline-period">{item.period}</div>
+                <div className="timeline-content">
+                  <div className="timeline-title">
+                    <h3>{item.company}{item.current && <span className="current-badge">CURRENT</span>}</h3>
+                    <p>{item.role}</p>
+                  </div>
+                  <p className="timeline-description">{item.description}</p>
                 </div>
-              </TiltCard>
+              </article>
             ))}
+            <details className="earlier" data-reveal>
+              <summary><span><b>+</b> Earlier roles</span><small>2023 — 2024</small><Icon name="chevron" size={20} /></summary>
+              <div className="earlier-content">
+                <article><span>FEB — MAR 2024</span><div><h4>Shocals Enterprises</h4><p>Angular and Ionic applications, JWT authentication, and PostgreSQL.</p></div></article>
+                <article><span>DEC 2023 — JAN 2024</span><div><h4>NinjaBytes</h4><p>Portfolio websites and REST APIs using React and Node.js.</p></div></article>
+                <article><span>JUN — JUL 2023</span><div><h4>TechnoHacks EduTech</h4><p>Educational web applications, frontend development, and backend integrations.</p></div></article>
+              </div>
+            </details>
           </div>
         </section>
 
-        <SystemExplorer />
         <MentalMap />
+        <SystemExplorer />
 
         <section className="stack section" id="stack">
-          <div className="section-index" data-reveal><span>05</span> TWO SIDES OF THE PRACTICE</div>
+          <div className="section-index" data-reveal><span>05</span> TECHNOLOGIES & CERTIFICATIONS</div>
           <div className="stack-intro" data-reveal>
-            <h2>Fluent in the stack.<br /><em>Focused on the system.</em></h2>
-            <p>A full-stack foundation with a systems engineering mindset.</p>
+            <h2>Technologies I’ve worked with</h2>
+            <p>The application, systems, and problem-solving tools I’ve used across work and projects.</p>
           </div>
           <div className="stack-grid">
             {skillGroups.map((group, index) => (
@@ -518,50 +497,19 @@ function App() {
             ))}
           </div>
           <div className="certification-strip" data-reveal>
-            <span>CONTINUOUS LEARNING</span>
+            <span>CERTIFICATIONS</span>
             <div><i>GH</i> GitHub Foundations</div>
             <div><i>AZ</i> Microsoft Azure Fundamentals</div>
             <div><i>IBM</i> Full Stack Software Developer</div>
           </div>
         </section>
 
-        <section className="experience section" id="experience">
-          <div className="section-heading experience-heading" data-reveal>
-            <div className="section-index"><span>06</span> THE ROUTE HERE</div>
-            <h2>Experience,<br /><em>layer by layer.</em></h2>
-            <p>Every chapter added a new way to understand how software works.</p>
-          </div>
-          <div className="timeline">
-            {experiences.map((item, index) => (
-              <article className="timeline-item" key={item.company} data-reveal>
-                <div className="timeline-marker"><span>{String(index + 1).padStart(2, '0')}</span></div>
-                <div className="timeline-period">{item.period}</div>
-                <div className="timeline-content">
-                  <div className="timeline-title">
-                    <h3>{item.company}{item.current && <span className="current-badge">CURRENT</span>}</h3>
-                    <p>{item.role}</p>
-                  </div>
-                  <p className="timeline-description">{item.description}</p>
-                </div>
-              </article>
-            ))}
-            <details className="earlier" data-reveal>
-              <summary><span><b>+</b> Earlier columns</span><small>2023 — 2024</small><Icon name="chevron" size={20} /></summary>
-              <div className="earlier-content">
-                <article><span>FEB — MAR 2024</span><div><h4>Shocals Enterprises</h4><p>Angular and Ionic applications, JWT authentication, and PostgreSQL.</p></div></article>
-                <article><span>DEC 2023 — JAN 2024</span><div><h4>NinjaBytes</h4><p>Portfolio websites and REST APIs using React and Node.js.</p></div></article>
-                <article><span>JUN — JUL 2023</span><div><h4>TechnoHacks EduTech</h4><p>Educational web applications, frontend development, and backend integrations.</p></div></article>
-              </div>
-            </details>
-          </div>
-        </section>
-
         <section className="proof section">
           <div className="proof-grid">
             <div className="proof-number" data-reveal>
-              <span className="section-index"><span>07</span> BEYOND THE DAY JOB</span>
+              <span className="section-index"><span>06</span> LEARNING & EDUCATION</span>
               <div><strong>650<sup>+</sup></strong><span>LEETCODE<br />PROBLEMS SOLVED</span></div>
-              <p>Curiosity, consistency, and a lot of edge cases.</p>
+              <p>Regular problem-solving practice outside my day-to-day work.</p>
             </div>
             <div className="education-card" data-reveal>
               <span className="mono-label">THE FOUNDATION</span>
@@ -582,11 +530,11 @@ function App() {
                 <i className="satellite sat-a" /><i className="satellite sat-b" />
               </div>
               <div className="work-copy">
-                <div className="section-index"><span>08</span> SELECTED PUBLIC WORK</div>
-                <h2>Always building.<br /><em>Always learning.</em></h2>
-                <p>Explore my public repositories, engineering experiments, and ongoing work on GitHub.</p>
+                <div className="section-index"><span>07</span> PUBLIC GITHUB WORK</div>
+                <h2>My code on GitHub</h2>
+                <p>My public repositories include application development work and coding experiments. The code and commit history show what I’ve been working on.</p>
                 <ExternalLink href="https://github.com/rvsarish?tab=repositories" className="button button-light" icon="github">
-                  Browse repositories
+                  View my repositories
                 </ExternalLink>
               </div>
               <div className="work-meta"><span>ON GITHUB SINCE SEPTEMBER 2023</span><span>@RVSARISH ↗</span></div>
@@ -595,14 +543,14 @@ function App() {
         </section>
 
         <section className="contact section" id="contact">
-          <div className="contact-kicker" data-reveal><span className="status-dot" /> GOOD SYSTEMS START WITH GOOD CONVERSATIONS</div>
-          <h2 data-reveal>Let’s make something<br /><em>work better.</em></h2>
+          <div className="contact-kicker" data-reveal><span className="status-dot" /> LINKEDIN IS THE BEST PLACE TO REACH ME</div>
+          <h2 data-reveal>Want to get in touch?</h2>
           <div className="contact-actions" data-reveal>
             <ExternalLink href="https://www.linkedin.com/in/sarishrv/" className="button button-primary">
-              Start a conversation
+              Connect on LinkedIn
             </ExternalLink>
             <ExternalLink href="https://github.com/rvsarish" className="text-link" icon="github">
-              Find me on GitHub
+              See my code on GitHub
             </ExternalLink>
           </div>
         </section>
@@ -610,7 +558,7 @@ function App() {
 
       <footer className="site-footer">
         <a className="brand" href="#top" aria-label="Sarish R V, back to top"><span className="brand-mark">S<span>/</span>V</span></a>
-        <p>THE SYSTEMS REVIEW · SARISH R V</p>
+        <p>SARISH R V · BENGALURU</p>
         <div><a href="https://www.linkedin.com/in/sarishrv/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Icon name="linkedin" size={19} /></a><a href="https://github.com/rvsarish" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Icon name="github" size={19} /></a><a href="#top" className="back-top">BACK TO TOP ↑</a></div>
       </footer>
     </>

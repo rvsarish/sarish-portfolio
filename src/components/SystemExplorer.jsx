@@ -8,31 +8,31 @@ const SystemScene = lazy(() => import('./SystemScene.jsx'));
 const stages = [
   {
     label: 'Request',
-    kicker: '01 / CAPTURE THE SIGNAL',
-    title: 'Establish the starting point.',
-    description: 'Understand what was initiated, which inputs shaped it, and what outcome was expected before interpreting anything downstream.',
-    questions: ['What was requested?', 'What outcome was expected?'],
+    kicker: '01 / BASELINE',
+    title: 'Start with the request',
+    description: 'I note the inputs and the intended outcome so there is a baseline for everything that follows.',
+    signals: ['Inputs', 'Expected outcome'],
   },
   {
     label: 'Orchestrate',
-    kicker: '02 / FIND THE ROUTE',
-    title: 'Follow the decisions.',
-    description: 'Trace how routing decisions and service dependencies shape the journey. The goal is to see where the request went and why.',
-    questions: ['Which route and dependencies were involved?', 'Which decision changed the path?'],
+    kicker: '02 / ROUTE',
+    title: 'Follow the route',
+    description: 'I follow the services and decision points, looking for the place where the response or behavior changed.',
+    signals: ['Services', 'Decision points'],
   },
   {
     label: 'Process',
-    kicker: '03 / READ THE RESPONSE',
-    title: 'Interpret the response.',
-    description: 'Read statuses, responses, transformations, and failure signals in context. A response is evidence—not always a complete explanation.',
-    questions: ['What response or status came back?', 'Does the evidence explain the observed symptom?'],
+    kicker: '03 / RESPONSE',
+    title: 'Read the response',
+    description: 'I compare the response with the original request before deciding what it says about the issue.',
+    signals: ['Status codes', 'Messages and error fields'],
   },
   {
     label: 'Resolve',
-    kicker: '04 / CLOSE THE LOOP',
-    title: 'Confirm the complete outcome.',
-    description: 'Check that the final state is consistent with the expected experience. Then preserve the learning so the next investigation starts with better context.',
-    questions: ['Is the final outcome consistent end to end?', 'What should be watched, documented, or improved?'],
+    kicker: '04 / OUTCOME',
+    title: 'Confirm the outcome',
+    description: 'I check the intended state end to end, then document the findings and the evidence behind them.',
+    signals: ['Final state', 'Recorded findings'],
   },
 ];
 
@@ -70,10 +70,10 @@ export default function SystemExplorer() {
 
   return (
     <section className="system section" id="system" aria-labelledby="system-heading">
-      <div className="section-index" data-reveal><span>03</span> INSIDE THE REQUEST</div>
+      <div className="section-index" data-reveal><span>04</span> TRANSACTION EXPLORER</div>
       <div className="system-intro" data-reveal>
-        <h2 id="system-heading">Follow the <em>signal.</em></h2>
-        <p><strong>Payment orchestration</strong> is the coordination of routes, services, decisions, and responses that move a transaction from initiation to outcome. Follow a conceptual request below.</p>
+        <h2 id="system-heading">A transaction’s path</h2>
+        <p>A simplified transaction lifecycle. Select a stage to see what I pay attention to when following a request.</p>
       </div>
       <div className="system-layout">
         <div className="system-visual" ref={sceneContainer} data-reveal>
@@ -95,7 +95,7 @@ export default function SystemExplorer() {
             <span className="mono-label">{stage.kicker}</span>
             <h3>{stage.title}</h3>
             <p>{stage.description}</p>
-            <ul className="stage-questions">{stage.questions.map((question) => <li key={question}>{question}</li>)}</ul>
+            <div className="stage-signals" aria-label="Key signals">{stage.signals.map((signal) => <span key={signal}>{signal}</span>)}</div>
           </div>
           <div className="system-stage-list" aria-label="Transaction stages">
             {stages.map((item, index) => (
